@@ -21,6 +21,31 @@ html {
   --accent: #d5ff8b;
 }
 
+h1 {
+  font-family: "Anton", sans-serif;
+  font-size: 72px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h2 {
+  font-family: "neue_haas_grotesk_display65Md";
+  font-size: 24px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+p {
+  font-family: "neue_haas_grotesk_display45Lt";
+  font-size: 24px;
+  line-height: 1.9rem;
+}
+
+h3 {
+  font-family: "optipirogi-romanregular";
+  font-size: 92px;
+}
+
 /* -----FONTE----- */
 /* ANTON */
 .anton-regular {
