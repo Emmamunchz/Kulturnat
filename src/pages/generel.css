@@ -1,0 +1,58 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+:root {
+  scroll-behavior: smooth;
+}
+
+html {
+  --primary_darkgrey: #28282b;
+  --secundary-oat: #eae1d4;
+  --secundary-pink: #ad3f61;
+  --accent: #d5ff8b;
+}
+
+/* -----FONTE----- */
+/* ANTON */
+.anton-regular {
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* OPTIPIROGI */
+@font-face {
+  font-family: "optipirogi-romanregular";
+  src: url(../assets/fonts/optipirogi/optipirogi-roman-webfont.woff2) format("woff2"), url(../assets/fonts/optipirogi/optipirogi-roman-webfont.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* NEUE HAAS */
+
+/* medium */
+
+@font-face {
+  font-family: "neue_haas_grotesk_display65Md";
+  src: url(../assets/fonts/neue/neuehaasdisplay-mediu-webfont.woff2) format("woff2"), url(../assets/fonts/neue/neuehaasdisplay-mediu-webfont.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* light  */
+
+@font-face {
+  font-family: "neue_haas_grotesk_display45Lt";
+  src: url(../assets/fonts/neue/neuehaasdisplay-light-webfont.woff2) format("woff2"), url(../assets/fonts/neue/neuehaasdisplay-light-webfont.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
