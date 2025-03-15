@@ -1,0 +1,39 @@
+---
+import MoonButton from "../components/MoonButton.astro";
+---
+
+<div class="gradients">
+  <div class="sun"></div>
+  <div class="moon"></div>
+</div>
+<MoonButton />
+
+<style>
+  .gradients {
+    grid: 1/1;
+  }
+  .sun {
+    aspect-ratio: 1/1;
+    background: radial-gradient(
+      circle,
+      #f58b34 0%,
+      #c14020 40%,
+      #7a1d3a 60%,
+      #45032d00 70%
+    );
+    border-radius: 50%;
+    height: 300px;
+  }
+  .moon {
+    aspect-ratio: 1/1;
+    background: radial-gradient(
+      circle,
+      #f1cfc6 0%,
+      #f9ddbc 40%,
+      #d4a6b5 60%,
+      #45032d00 70%
+    );
+    border-radius: 50%;
+    height: 300px;
+  }
+</style>
