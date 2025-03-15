@@ -1,0 +1,67 @@
+---
+import Newsletter from "./Newsletter.astro";
+import SoMe from "./SoMe.astro";
+import Partners from "./Partners.astro";
+---
+
+<footer>
+  <div class="underline"></div>
+  <div class="grid_1-1">
+    <div class="information">
+      <div class="contact">
+        <h2>Kontaktoplysninger</h2>
+        <p>Har du spørgsmål til Kulturnat?</p>
+        <p>
+          Email: <a href="mailto:kulturnatten@elsinore2032.dk"
+            >kulturnatten@elsinore2032.dk</a
+          >
+        </p>
+      </div>
+      <div class="socialmedia">
+        <h2>Følg os på<br />sociale medier:</h2>
+        <SoMe
+          icon="src/assets/facebook.svg"
+          url="https://www.facebook.com/kulturnathelsingor/?locale=da_DK"
+        />
+        <SoMe
+          icon="src/assets/instagram.svg"
+          url="https://www.instagram.com/"
+        />
+        <SoMe icon="src/assets/kultunaut.svg" url="https://www.kultunaut.dk/" />
+      </div>
+    </div>
+    <Newsletter />
+  </div>
+  <Partners />
+</footer>
+
+<style>
+  .grid_1-1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    padding: 20px;
+  }
+  .socialmedia {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+  .underline {
+    width: 100%;
+    height: 1px;
+    background-color: #e5e1dc;
+    margin-top: 10px;
+  }
+  .information {
+    place-self: center;
+  }
+  a {
+    text-decoration: none;
+    color: var(--secundary-oat);
+  }
+  a:hover {
+    opacity: 0.6;
+  }
+</style>

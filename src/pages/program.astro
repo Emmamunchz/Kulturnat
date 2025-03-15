@@ -1,10 +1,17 @@
 ---
+import "./generel.css";
+import Layout from "../layouts/Layout.astro";
 import ButtonGreen from "../components/ButtonGreen.astro";
 import ButtonRed from "../components/ButtonRed.astro";
 import Footer from "../components/Footer.astro";
-import "./generel.css";
+import Moon from "../components/Moon.astro";
 ---
 
-<ButtonGreen tekst="Læs mere om kulturnat her" />
-<ButtonRed tekst="Læs mere om kulturnat her" />
-<Footer />
+<Layout>
+  <ButtonGreen tekst="Læs mere om kulturnat her" />
+  <ButtonRed tekst="Læs mere om kulturnat her" />
+  <Moon />
+  <Footer />
+
+  <style></style>
+</Layout>
