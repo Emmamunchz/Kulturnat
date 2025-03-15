@@ -3,10 +3,9 @@ import MoonButton from "../components/MoonButton.astro";
 ---
 
 <div class="gradients">
-  <div class="sun"></div>
-  <div class="moon"></div>
+  <div class="sun" id="sun"></div>
+  <div class="moon" id="moon"></div>
 </div>
-<MoonButton />
 
 <style>
   .gradients {
@@ -35,5 +34,6 @@ import MoonButton from "../components/MoonButton.astro";
     );
     border-radius: 50%;
     height: 300px;
+    display: none;
   }
 </style>
