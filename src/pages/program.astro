@@ -5,13 +5,39 @@ import ButtonGreen from "../components/ButtonGreen.astro";
 import ButtonRed from "../components/ButtonRed.astro";
 import Footer from "../components/Footer.astro";
 import Moon from "../components/Moon.astro";
+import H1Button from "../components/H1Button.astro";
 ---
 
 <Layout>
-  <ButtonGreen tekst="Læs mere om kulturnat her" />
-  <ButtonRed tekst="Læs mere om kulturnat her" />
+  <ButtonGreen text="Læs mere om kulturnat her" />
+  <ButtonRed text="Læs mere om kulturnat her" />
   <Moon />
+  <H1Button text="Program" color="var(--accent)" />
   <Footer />
 
   <style></style>
 </Layout>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const moonButton = document.getElementById("moonCircle");
+    const sun = document.getElementById("sun");
+
+    if (moonButton && sun) {
+      let isOriginalColor = true;
+
+      moonButton.addEventListener("click", () => {
+        if (isOriginalColor) {
+          sun.style.background =
+            "radial-gradient(circle, #f1cfc6 0%, #f9ddbc 40%, #d4a6b5 60%, #45032d00 70%)";
+        } else {
+          sun.style.background =
+            "radial-gradient(circle, #f58b34 0%, #c14020 40%, #7a1d3a 60%, #45032d00 70%)";
+        }
+        isOriginalColor = !isOriginalColor;
+      });
+    } else {
+      console.error("Elementer ikke fundet");
+    }
+  });
+</script>

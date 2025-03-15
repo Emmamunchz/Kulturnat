@@ -1,3 +1,62 @@
----
-import MoonCircle from "../components/MoonCircle.astro";
----
+<div class="button" id="moonButton">
+  <div class="circle" id="moonCircle">
+    <p>→</p>
+  </div>
+</div>
+
+<style>
+  .button {
+    margin: 0;
+    border: 1px solid var(--accent);
+    border-radius: 100px;
+    width: 75px;
+    height: fit-content;
+    padding: 3px 3px;
+    color: var(--accent);
+  }
+
+  .circle {
+    background-color: var(--accent);
+    border-radius: 100%;
+    width: 35px;
+    height: 35px;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+    left: 3px;
+  }
+
+  .circle:hover {
+    opacity: 0.8;
+    transition: 0.3s;
+  }
+
+  .circle.right {
+    transform: translateX(
+      32px
+    ); /* Adjust this value based on the width of the button */
+  }
+
+  p {
+    color: var(--primary_darkgrey);
+    margin: 0 auto;
+    place-self: center;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const moonButton = document.getElementById("moonButton");
+    const moonCircle = document.getElementById("moonCircle");
+
+    if (moonButton && moonCircle) {
+      moonCircle.addEventListener("click", () => {
+        moonCircle.classList.toggle("right");
+      });
+    } else {
+      console.error("Elementer ikke fundet");
+    }
+  });
+</script>
