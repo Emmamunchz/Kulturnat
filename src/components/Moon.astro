@@ -4,7 +4,6 @@ import MoonButton from "../components/MoonButton.astro";
 
 <div class="gradients">
   <div class="sun" id="sun"></div>
-  <div class="moon" id="moon"></div>
 </div>
 
 <style>
@@ -22,18 +21,5 @@ import MoonButton from "../components/MoonButton.astro";
     );
     border-radius: 50%;
     height: 300px;
-  }
-  .moon {
-    aspect-ratio: 1/1;
-    background: radial-gradient(
-      circle,
-      #f1cfc6 0%,
-      #f9ddbc 40%,
-      #d4a6b5 60%,
-      #45032d00 70%
-    );
-    border-radius: 50%;
-    height: 300px;
-    display: none;
   }
 </style>
