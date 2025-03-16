@@ -1,0 +1,95 @@
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    console.log("DOM er indlæst!");
+
+    const sendBtn = document.getElementById("sendBtn");
+    const emailInput = document.getElementById("email");
+    const confirmation = document.getElementById("confirmation");
+
+    if (!sendBtn || !emailInput || !confirmation) {
+      console.error("En af elementerne blev ikke fundet!");
+      return;
+    }
+
+    console.log("Alle elementer fundet!");
+
+    sendBtn.addEventListener("click", function () {
+      console.log("Send-knap blev trykket!");
+
+      // Typecast emailInput til HTMLInputElement for at få adgang til .value
+      let email = (emailInput as HTMLInputElement).value;
+
+      if (email.trim() !== "") {
+        console.log("Email er indtastet:", email);
+        confirmation.style.display = "block";
+
+        // Lås inputfeltet
+        (emailInput as HTMLInputElement).disabled = true;
+
+        // Ændre send-knappen, så brugeren kan se, at de ikke kan sende igen
+        sendBtn.style.opacity = "0.5"; // gør knappen svagere for at indikere, at den ikke er aktiv
+      } else {
+        console.warn("Ingen email indtastet!");
+      }
+    });
+  });
+</script>
+
+<div class="container">
+  <input type="text" id="email" placeholder="Email" />
+  <div class="underline"></div>
+  <div class="sendBtn" id="sendBtn"><p>Send →</p></div>
+  <div class="confirmation" id="confirmation">
+    Du er nu tilmeldt nyhedsbrevet
+  </div>
+</div>
+
+<style>
+  .container {
+    position: relative;
+    width: 500px;
+  }
+  input {
+    background: none;
+    border: none;
+    outline: none;
+    color: #e5e1dc;
+    font-size: 20px;
+    width: 100%;
+  }
+  input:hover {
+    cursor: pointer;
+  }
+  .underline {
+    width: 100%;
+    height: 1px;
+    background-color: #e5e1dc;
+    margin-top: 10px;
+  }
+  .sendBtn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: #e5e1dc;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .sendBtn:hover {
+    opacity: 0.8;
+  }
+  .confirmation {
+    margin-top: 10px;
+    color: #e5e1dc;
+    font-size: 16px;
+    display: none;
+    font-family: "neue_haas_grotesk_display45Lt";
+    font-size: 14px;
+    line-height: 1.9rem;
+    color: var(--secundary-oat);
+    position: absolute;
+  }
+</style>

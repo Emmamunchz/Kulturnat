@@ -1,0 +1,17 @@
+---
+import MoonButton from "./MoonButton.astro";
+const { text, color } = Astro.props;
+---
+
+<div>
+  <h1 style={`color: ${color};`}>{text}</h1>
+  <MoonButton />
+</div>
+<style>
+  div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 25px;
+  }
+</style>
