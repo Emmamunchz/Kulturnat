@@ -1,30 +1,23 @@
 ---
-const { text, url } = Astro.props;
+const { tekst } = Astro.props;
 ---
 
-<a href={url}>
-  <p>{text}</p>
-</a>
+<div class="wrapper"><button class="buttonGreen">{tekst}</button></div>
 
 <style>
-  a {
-    text-decoration: none;
-    background-color: transparent;
-    transition: 0.3s;
+  .buttonGreen {
+    font-size: 15px;
+    width: 150px;
+    color: rgba(213, 255, 139, 1);
+    border: solid 1px rgba(213, 255, 139, 1);
+    border-radius: 3px;
+    background-color: rgba(49, 49, 49, 1);
+    padding: 10px;
   }
-  p:hover,
-  a:hover {
+
+  .buttonGreen:hover {
+    scale: 1.2;
+  }
+  .buttonGreen:active {
     opacity: 0.8;
-    scale: 1.05;
-    transition: 0.3s;
-  }
-  p {
-    margin: 0;
-    border: 1px solid var(--accent);
-    border-radius: 5px;
-    width: fit-content;
-    padding: 0px 10px;
-    color: var(--accent);
-    transition: 0.3s;
-  }
 </style>
