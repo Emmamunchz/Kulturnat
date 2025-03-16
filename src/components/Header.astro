@@ -3,39 +3,36 @@ import "./src/pages/generel.css";
 ---
 
 <script>
-  const burger = document.querySelector(".burger");
-  const nav = document.querySelector("nav");
-  const menu = document.querySelector(".menu");
-  const menuHover = document.querySelector(".menu_hover");
-
-  // åbner burger og nav --> toogle = tilføjer eller fjerne class
-  burger.addEventListener("click", burgerClick);
-  function burgerClick() {
-    burger.classList.toggle("active");
-    nav.classList.toggle("active");
-  }
-
-  // lukker navigationdn
-  menu.addEventListener("click", menuClick);
-  function menuClick() {
-    burger.classList.remove("active");
-    nav.classList.remove("active");
-  }
-
-  // dokument er loaded skal der ske det her
-  // hvis menu og menuhover har classen active skal der stå luk, hvis den ikke har classen active skal der stå menu
-  // skulle selvfølgelig stå active og ikke open
   document.addEventListener("DOMContentLoaded", () => {
-    burger.addEventListener("click", () => {
-      menu.classList.toggle("open");
-      menuHover.classList.toggle("active");
+    const burger = document.querySelector(".burger");
+    const nav = document.querySelector("nav");
+    const menu = document.querySelector(".menu");
+    const menuHover = document.querySelector(".burger_hover img");
 
-      if (menu.classList.contains("open")) {
-        menuHover.textContent = "[LUK]";
-      } else {
-        menuHover.textContent = "[MENU]";
-      }
-    });
+    if (burger && nav) {
+      burger.addEventListener("click", () => {
+        burger.classList.toggle("active");
+        nav.classList.toggle("active");
+        menu.classList.toggle("open");
+        menuHover.classList.toggle("active");
+
+        if (menu.classList.contains("open")) {
+          menuHover.src = "../assets/active_burger.svg"; // Billedet når menuen er åben
+        } else {
+          menuHover.src = "../assets/closed_burger.png"; // Billedet når menuen er lukket
+        }
+      });
+    }
+
+    if (menu) {
+      menu.addEventListener("click", () => {
+        burger.classList.remove("active");
+        nav.classList.remove("active");
+        menu.classList.remove("open");
+        menuHover.classList.remove("active");
+        menuHover.src = "../assets/closed_burger.png"; // Billedet når menuen er lukket
+      });
+    }
   });
 </script>
 
@@ -51,7 +48,35 @@ import "./src/pages/generel.css";
       <li><a href="#">Favoritter</a></li>
       <li><a href="#">Galleri</a></li>
       <li><a href="#">Bliv arrangør</a></li>
+      <div class="ekstra-menu_burger">
+        <div class="linje"></div>
+        <div class="grid_1-1">
+          <h2>Er du fra Helsingborg?</h2>
+          <a href="#"> &nbsp Køb billet her</a>
+        </div>
+        <div class="grid_1-1">
+          <h2>Har du andre spørgsmål?</h2>
+          <a href="#"> &nbsp Send en mail</a>
+        </div>
+        <div class="grid_1-1">
+          <h2>Vil du gerne have opdateringer?</h2>
+          <a href="#"> &nbsp Tilmeld dig her</a>
+        </div>
+        <div class="grid_1-1">
+          <img src="" alt="" />
+          <p>Facebook</p>
+        </div>
+        <div class="grid_1-1">
+          <img src="" alt="" />
+          <p>Instagram</p>
+        </div>
+        <div class="grid_1-1">
+          <img src="" alt="" />
+          <p>Kultunaut.dk</p>
+        </div>
+      </div>
     </ul>
+
     <div class="burger">
       <div class="burger_hover">
         <img src="../assets/closed_burger.png" alt="" />
@@ -70,6 +95,14 @@ import "./src/pages/generel.css";
   .img_logo {
     width: 90%;
     margin-left: 2rem;
+  }
+
+  .linje {
+    height: 1px;
+    background-color: var(--accent);
+    width: 80%;
+    margin: 10px;
+    margin-left: 1.1rem;
   }
 
   .header-container {
@@ -153,7 +186,18 @@ import "./src/pages/generel.css";
   .burger {
     display: none;
   }
+
+  .ekstra-menu_burger {
+    display: none;
+  }
   @media screen and (max-width: 750px) {
+    .grid_1-1 {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: right;
+      justify-content: center;
+      margin-top: 0.5rem;
+    }
     .menu {
       display: none;
       margin: 0;
@@ -165,12 +209,11 @@ import "./src/pages/generel.css";
 
     nav.active .menu {
       display: block;
-      background-color: var(--primary_grey);
+      background-color: var(--primary_darkgrey);
       position: absolute;
       top: 94px;
-      left: 0;
-      width: 100%;
-      box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+      right: 0;
+      width: 70%;
       z-index: 1;
     }
 
@@ -179,7 +222,37 @@ import "./src/pages/generel.css";
     }
 
     nav.active .menu a {
-      font-size: 24px;
+      font-size: 36px;
+      font-family: "Anton", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      color: var(--accent);
+      text-decoration: underline;
+      padding: 0;
+      text-align: left;
+    }
+
+    nav.active .menu .ekstra-menu_burger a {
+      font-size: 14px;
+      font-family: "neue_haas_grotesk_display45Lt";
+      color: var(--accent);
+      text-decoration: none;
+      padding: 0;
+      text-align: left;
+    }
+
+    h2 {
+      font-size: 16px;
+      font-family: "neue_haas_grotesk_display65Md";
+      color: var(--accent);
+      text-decoration: none;
+      padding: 0;
+      text-align: left;
+      padding-left: 1.1rem;
+    }
+
+    nav.active .menu a:hover {
+      text-decoration: none;
     }
 
     .img_logo {
@@ -198,10 +271,14 @@ import "./src/pages/generel.css";
     header {
       position: sticky;
       z-index: 100;
-      padding: 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+    }
+
+    .ekstra-menu_burger {
+      display: flex;
+      flex-direction: column;
     }
   }
 </style>
