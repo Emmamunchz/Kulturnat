@@ -1,5 +1,4 @@
 ---
-
 import "./src/pages/generel.css";
 
 // tror noget alla for at lave countdown
@@ -11,111 +10,119 @@ export interface Props {
 }
 
 const { image, days, hours, minutes } = Astro.props;
-
-
 ---
 
 <div class="hero">
-  <img src=src/assets/hero.webp alt="Helsingør Kulturnat" class="background-image" />
+  <img
+    src="src/assets/hero.webp"
+    alt="Helsingør Kulturnat"
+    class="background-image"
+  />
   <div class="overlay">
     <div class="hero-content">
-        <img src=src/assets/titel.svg alt="Helsingør Kulturnat" class="titel" />
-        <div class="countdown-tal">
-            <div><span>{days}</span></div>
-            <div><span>{hours}</span></div>
-            <div><span>{minutes}</span></div>
-          </div>
+      <img src="src/assets/titel.svg" alt="Helsingør Kulturnat" class="titel" />
+      <div class="countdown-tal">
+        <div><span>{days}</span></div>
+        <div><span>{hours}</span></div>
+        <div><span>{minutes}</span></div>
+      </div>
       <div class="countdown">
-        <div> DAGE</div>
+        <div>DAGE</div>
         <div>TIMER</div>
-        <div> MIN</div>
+        <div>MIN</div>
       </div>
       <button class="cta">GEM DATOEN</button>
     </div>
-    <img class="frame" src="src/assets/ramme-desk.svg" alt="frame" style="width: 90%; max-width: 5
-    1200px; height: auto;" />
-</div>
+    <img
+      class="frame"
+      src="src/assets/ramme-desk.svg"
+      alt="frame"
+      style="width: 90%; max-width: 5
+    1200px; height: auto;"
+    />
+  </div>
 </div>
 
 <style>
-    .hero {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-    }
-  
-    .background-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: relative;
-      top: 0;
-      left: 0;
-    }
-  
-    .overlay {
-      position: absolute;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      color: black;
-      z-index: 1000;
-    }
-  
-    .countdown {
-    color: #28282B;
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+
+  .overlay {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: black;
+    z-index: 1000;
+  }
+
+  .countdown {
+    color: #28282b;
     display: flex;
     gap: 120px;
     font-size: 2rem;
     font-weight: bold;
-    position: absolute; 
-    bottom: 60px; 
-    left: 140px; 
+    position: absolute;
+    bottom: 60px;
+    left: 140px;
     z-index: 1000;
   }
   .countdown-tal {
-    color: #28282B;
+    color: #28282b;
     display: flex;
     gap: 125px;
     font-size: 5rem;
     font-weight: bold;
-    position: absolute; 
-    bottom: 100px; 
-    left: 130px; 
+    position: absolute;
+    bottom: 100px;
+    left: 130px;
     z-index: 1000;
   }
-  
-    .cta {
-        color: #28282B;
+
+  .cta {
+    color: #28282b;
 
     z-index: 1000;
-    position: absolute; 
+    position: absolute;
     font-size: 2.2rem;
     font-weight: bold;
-    font-family: ;
-    bottom: 60px; 
-    right: 300px; 
-    width: 400px; 
+    font-family:;
+    bottom: 60px;
+    right: 300px;
+    width: 400px;
     height: auto;
     background-color: rgba(0, 0, 0, 0);
     border-color: rgba(0, 0, 0, 0);
-    }
-  
-    .frame {
-      margin-top: 0px;
-      z-index: 500; }
-  
-    .titel {
+  }
+
+  .frame {
+    margin-top: 0px;
+    z-index: 500;
+  }
+
+  .titel {
     z-index: 1000;
-    position: absolute; 
-    top: 70px; 
-    left: 125px; 
-    width: 400px; 
+    position: absolute;
+    top: 70px;
+    left: 125px;
+    width: 400px;
     height: auto;
   }
-  </style>
+</style>

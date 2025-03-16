@@ -3,12 +3,185 @@ import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import ButtonGreen from "../components/ButtonGreen.astro";
 import ButtonRed from "../components/ButtonRed.astro";
+import Footer from "../components/Footer.astro";
+import Moon from "../components/Moon.astro";
+import H1Button from "../components/H1Button.astro";
+import Ferry from "../components/Ferry.astro";
+import ImageBorder from "../components/ImageBorder.astro";
 ---
-<Hero image="/Skærmbillede-2025-03-15.png" days={320} hours={10} minutes={12} />
-<Hero 
-  image="" 
-  days={320} 
-  hours={10} 
-  minutes={12} 
-/>
 
+<Layout>
+  <Hero
+    image="/Skærmbillede-2025-03-15.png"
+    days={320}
+    hours={10}
+    minutes={12}
+  />
+  <main>
+    <div class="gap" style="height: 150px;"></div>
+    <section class="grid_1-1-1">
+      <div class="span_1">
+        <h1 style="color: var(--secundary-pink);">Kulturnat 2025</h1>
+        <h2>
+          Kulturnætterne i Helsingør Kommune er det årlige lyspunkt i det
+          begyndende efterårs mørke aftener
+        </h2>
+        <p>
+          Det lokale kultur-, forenings- og handelsliv opfordrer i samarbejde
+          borgerne om at komme ud af stuerne for sammen at fylde byrummene i
+          Tikøb, Espergærde og Helsingør med liv.
+        </p>
+        <ButtonGreen
+          tekst="Læs mere om kulturnat 2025"
+          url="https://www.kulturnathelsingor.dk/om-kulturnat/"
+        />
+      </div>
+      <ImageBorder
+        img="https://placehold.co/400x400"
+        frame="src/assets/border1.svg"
+      />
+      <ImageBorder
+        img="https://placehold.co/400x400"
+        frame="src/assets/border1.svg"
+      />
+      <ImageBorder
+        img="https://placehold.co/400x400"
+        frame="src/assets/border2.svg"
+      />
+      <ImageBorder
+        img="https://placehold.co/400x400"
+        frame="src/assets/border3.svg"
+      />
+    </section>
+    <div class="gap" style="height: 300px;"></div>
+    <section class="grid_1-1-1">
+      <div class="span_1">
+        <H1Button text="Program" color="var(--accent)" />
+        <h2>
+          Gå fra dag til Kulturnat - se programmerne for Helsingør, Espergærde
+          og Tikøb
+        </h2>
+        <p>
+          Programmet bliver til i takt med at arrangørerne indtaster deres
+          begivenheder. Gå på opdagelse i de forskellige byer og find de
+          begivenheder, der interesserer dig. Du finder alt lige fra musik,
+          madoplevelser, workshops og meget mere til alle aldre.
+        </p>
+        <ButtonRed tekst="Se programmet her" url="/program" />
+      </div>
+      <Moon />
+    </section>
+    <div class="gap" style="height: 300px;"></div>
+    <section class="grid_1-1-1-1-1">
+      <img src="https://placehold.co/400x650" alt="" class="span_1" />
+      <div class="span_2">
+        <h1 style="color: var(--secundary-pink);">
+          Vil du afholde en begivenhed?
+        </h1>
+        <h2>
+          Alle kan deltage med arrangementer og aktiviteter på Kulturnatten
+        </h2>
+        <p>
+          Store som små organisationer, institutioner og enkeltpersoner skaber
+          på Kulturnatten sammen liv i hele byen. Hvis du har lyst til at
+          deltage med et arrangement på Kulturnatten, kan du få det med i det
+          fælles program. Som arrangører har I selv det fulde ansvar for
+          begivenheden, herunder sikkerhed og indhentning af eventuelle
+          nødvendige tilladelser.
+        </p>
+        <ButtonGreen
+          tekst="Bliv arrangør her"
+          url="https://www.kulturnathelsingor.dk/kontakt/"
+        />
+      </div>
+    </section>
+    <div class="gap" style="height: 300px;"></div>
+    <section class="grid_1-1-1-1-1">
+      <h1 style="color: var(--accent);" class="span_3">
+        Oplev Kulturnatten med Øresundslinjen
+      </h1>
+      <div class="span_1">
+        <p>
+          Oplev en magisk aften fyldt med kultur, lys og liv i Helsingør! Fra
+          Helsingborg er der kun en kort sejltur til en by i feststemning, hvor
+          gaderne summer af musik, kunst og unikke oplevelser.
+        </p>
+        <ButtonRed
+          tekst="Køb færgebillet her"
+          url="https://www.oresundslinjen.dk/fartplan"
+        />
+      </div>
+      <div class="span_2">
+        <Ferry />
+      </div>
+    </section>
+    <div class="gap" style="height: 300px;"></div>
+  </main>
+  <img src="https://placehold.co/400x400" alt="" class="watermark" />
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    width: 900px;
+    margin: 0 auto;
+  }
+  .grid_1-1-1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+  .grid_1-1-1-1-1 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+  }
+  .span_1 {
+    grid-column: 1 / span 2;
+    padding: 10px;
+  }
+  .span_2 {
+    grid-column: 3 / span 3;
+    padding: 10px;
+  }
+  .span_3 {
+    grid-column: 1 / span 5;
+    padding: 10px;
+  }
+  .grid_1-1-1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+  .watermark {
+    position: absolute;
+    height: 800px;
+    opacity: 0.2;
+    transform: translate(-30%, -60%);
+    z-index: -1;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const moonButton = document.getElementById("moonCircle");
+    const sun = document.getElementById("sun");
+
+    if (moonButton && sun) {
+      let isOriginalColor = true;
+
+      moonButton.addEventListener("click", () => {
+        if (isOriginalColor) {
+          sun.style.background =
+            "radial-gradient(circle, #f1cfc6 0%, #f9ddbc 40%, #d4a6b5 60%, #45032d00 70%)";
+        } else {
+          sun.style.background =
+            "radial-gradient(circle, #f58b34 0%, #c14020 40%, #7a1d3a 60%, #45032d00 70%)";
+        }
+        isOriginalColor = !isOriginalColor;
+      });
+    } else {
+      console.error("Elementer ikke fundet");
+    }
+  });
+</script>
