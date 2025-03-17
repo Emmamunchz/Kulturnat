@@ -4,4 +4,24 @@ import FilterButton from "../components/FilterButton.astro"
 ---
 <h2>{tekst}</h2>
 <div class="underline"></div>
+<div class="flex">
+<FilterButton tekst="Alle"/>
 <FilterButton tekst="Tikøb"/>
+<FilterButton tekst="Helsingør"/>
+<FilterButton tekst="Espergærde"/>
+</div>
+
+<style>
+    .flex{
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+    }
+    
+    .underline { height: 1px;
+background-color: var(--accent);
+width: 100%;
+margin-top: 10px;
+margin-bottom: 10px;
+}
+</style>
