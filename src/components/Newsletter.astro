@@ -1,0 +1,19 @@
+---
+import Email from "./Email.astro";
+---
+
+<div>
+  <h1>Tilmeld dig vores nyhedsbrev!</h1>
+  <Email client:load />
+</div>
+
+<style>
+  h1 {
+    color: var(--secundary-oat);
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+  }
+</style>

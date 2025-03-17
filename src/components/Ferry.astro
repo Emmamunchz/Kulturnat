@@ -1,0 +1,164 @@
+<section class="ferry">
+  <img src="src/assets/boat_flag.svg" alt="" class="boat sail" />
+  <img src="src/assets/castle.svg" alt="" class="castle" />
+  <img src="src/assets/waves.svg" alt="" class="waves hover" />
+</section>
+
+<style>
+  .ferry {
+    border: 1px solid var(--accent);
+    border-radius: 5px;
+    height: 200px;
+    width: 550px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .boat {
+    position: absolute;
+    width: 110px;
+    bottom: 10px;
+    left: 0;
+  }
+
+  .castle {
+    position: absolute;
+    width: 250px;
+    bottom: 0;
+    right: 0;
+  }
+
+  .waves {
+    position: absolute;
+    width: 300px;
+    bottom: 0;
+    left: 0;
+  }
+
+  .sail {
+    animation-name: sail_kf;
+    animation-duration: 8s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate; /* Går baglæns, når den når 100% */
+    transform-origin: 50% 80%;
+    rotate: 0deg;
+  }
+
+  @keyframes sail_kf {
+    0% {
+      bottom: 10px;
+      left: 0;
+      transform: rotate(10deg);
+    }
+    7% {
+      bottom: 15px;
+      left: 10px;
+      transform: rotate(-5deg);
+    }
+    14% {
+      bottom: 10px;
+      left: 20px;
+      transform: rotate(7deg);
+    }
+    21% {
+      bottom: 11px;
+      left: 30px;
+      transform: rotate(-11deg);
+    }
+    28% {
+      bottom: 4px;
+      left: 40px;
+      transform: rotate(2deg);
+    }
+    35% {
+      bottom: 19px;
+      left: 50px;
+      transform: rotate(-6deg);
+    }
+    42% {
+      bottom: 10px;
+      left: 60px;
+      transform: rotate(8deg);
+    }
+    49% {
+      bottom: 16px;
+      left: 70px;
+      transform: rotate(-2deg);
+    }
+    56% {
+      bottom: 9px;
+      left: 80px;
+      transform: rotate(10deg);
+    }
+    63% {
+      bottom: 20px;
+      left: 90px;
+      transform: rotate(-3deg);
+    }
+    70% {
+      bottom: 7px;
+      left: 110px;
+      transform: rotate(8deg);
+    }
+    77% {
+      bottom: 20px;
+      left: 125px;
+      transform: rotate(-8deg);
+    }
+    84% {
+      bottom: 14px;
+      left: 140px;
+      transform: rotate(9deg);
+    }
+    91% {
+      bottom: 19px;
+      left: 160px;
+      transform: rotate(-2deg);
+    }
+    97% {
+      bottom: 8px;
+      left: 170px;
+      transform: rotate(10deg);
+    }
+    100% {
+      bottom: 18px;
+      left: 180px;
+      transform: rotate(-8deg);
+    }
+  }
+
+  .hover {
+    animation-name: hover;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate-reverse;
+  }
+
+  @keyframes hover {
+    from {
+      translate: 0 -150%;
+    }
+    to {
+      translate: 0 0%;
+    }
+  }
+
+  .bouncing {
+    animation-name: bouncing_kf;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+    animation-direction: alternate-reverse;
+  }
+
+  @keyframes bouncing_kf {
+    from {
+      translate: 0 -150%;
+    }
+    to {
+      translate: 0 150%;
+    }
+  }
+</style>

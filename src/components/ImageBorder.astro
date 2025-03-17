@@ -1,0 +1,30 @@
+---
+const { img, frame } = Astro.props;
+---
+
+<div>
+  <img src={img} alt="Billede" class="image" />
+  <img src={frame} alt="Ramme" class="border" />
+</div>
+
+<style>
+  div {
+    position: relative;
+    height: 300px;
+    width: 300px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+  }
+
+  .image {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+  }
+
+  .border {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    scale: 0.95;
+  }
+</style>

@@ -1,0 +1,67 @@
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const rollerContent = document.querySelector(
+      ".roller-content",
+    ) as HTMLElement;
+    const roller = document.querySelector(".roller") as HTMLElement;
+
+    if (!rollerContent || !roller) {
+      console.error("Elementer ikke fundet");
+      return;
+    }
+
+    const rollerContentWidth = rollerContent.scrollWidth;
+    const rollerWidth = roller.offsetWidth;
+
+    let startPosition = 0;
+
+    function scrollContent() {
+      startPosition -= 1;
+      if (Math.abs(startPosition) >= rollerContentWidth / 2) {
+        startPosition = 0;
+      }
+      rollerContent.style.transform = `translateX(${startPosition}px)`;
+      requestAnimationFrame(scrollContent);
+    }
+
+    rollerContent.innerHTML += rollerContent.innerHTML; // Duplicate content for seamless scrolling
+    scrollContent();
+  });
+</script>
+
+<div class="roller">
+  <div class="roller-content">
+    <img src="src/assets/kommune_logo.webp" alt="Helsingør Kommune" />
+    <img src="src/assets/kulturnatten_logo.webp" alt="Helsingør Kulturnat" />
+    <img src="src/assets/elsinore_logo.webp" alt="Elsinore" />
+    <img src="src/assets/kommune_logo.webp" alt="Helsingør Kommune" />
+    <img src="src/assets/kulturnatten_logo.webp" alt="Helsingør Kulturnat" />
+    <img src="src/assets/elsinore_logo.webp" alt="Elsinore" />
+    <img src="src/assets/kommune_logo.webp" alt="Helsingør Kommune" />
+    <img src="src/assets/kulturnatten_logo.webp" alt="Helsingør Kulturnat" />
+    <img src="src/assets/elsinore_logo.webp" alt="Elsinore" />
+    <img src="src/assets/kommune_logo.webp" alt="Helsingør Kommune" />
+    <img src="src/assets/kulturnatten_logo.webp" alt="Helsingør Kulturnat" />
+    <img src="src/assets/elsinore_logo.webp" alt="Elsinore" />
+  </div>
+</div>
+
+<style>
+  .roller {
+    overflow: hidden;
+    width: 100%;
+    margin-top: 75px;
+  }
+
+  .roller-content {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    height: 120px;
+  }
+
+  img {
+    width: auto;
+    height: 100%;
+  }
+</style>
