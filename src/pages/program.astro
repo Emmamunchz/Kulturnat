@@ -1,5 +1,8 @@
 ---
 import "./generel.css";
+import FilterButton from "../components/FilterButton.astro";
+import FilterClick from "../components/FilterClick.astro";
+import FilterSystem from "../components/FilterSystem.astro";
 import Layout from "../layouts/Layout.astro";
 import ButtonGreen from "../components/ButtonGreen.astro";
 import ButtonRed from "../components/ButtonRed.astro";
@@ -9,5 +12,23 @@ import H1Button from "../components/H1Button.astro";
 import Ferry from "../components/Ferry.astro";
 import ImageBorder from "../components/ImageBorder.astro";
 ---
+<Layout>
+<main>
+ <h1 style="color: var(--accent);">Program</h1>
+<h2>Find det der passer lige præcis til dig</h2>
+<p>Her finder du alle de spændende aktiviteter til programmet. Tryk og læs endnu mere, og bliv inspireret til hvad det næste du skal opleve skal være. </p>
+<FilterSystem tekst="Filtrer blandt byerne"/>
 
-<Layout />
+
+
+</main>
+</Layout>
+<style> 
+
+main {
+  width: 900px;
+  margin: 0 auto;
+}
+
+
+  </style>
