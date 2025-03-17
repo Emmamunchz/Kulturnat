@@ -3,7 +3,7 @@
 import "./src/pages/generel.css";
 
 // Definér props i Astro'
-const { image, days, hours, minutes } = Astro.props;
+const { image, targetDate } = Astro.props;
 
 ---
 
@@ -13,14 +13,16 @@ const { image, days, hours, minutes } = Astro.props;
     <div class="hero-content">
         <img src="./src/assets/titel.svg" alt="Helsingør Kulturnat" class="titel" />
         <div class="countdown-tal">
-            <div><span>{days}</span></div>
-            <div><span>{hours}</span></div>
-            <div><span>{minutes}</span></div>
+            <div><span id="days"></span></div>
+            <div><span id="hours"></span></div>
+            <div><span id="minutes"></span></div>
+
           </div>
       <div class="countdown">
         <div>DAGE</div>
         <div>TIMER</div>
         <div>MIN</div>
+
       </div>
       <button class="cta" id="save-date">GEM DATOEN</button>
     </div>
@@ -29,7 +31,28 @@ const { image, days, hours, minutes } = Astro.props;
   </div>
 </div>
 
-<!-- JavaScript skal være klient-side -->
+<!-- Noter til scriptet:
+DOMContentLoaded Event:
+
+Scriptet venter på, at hele DOM'en er indlæst, før det kører. Dette sikrer, at alle elementer er tilgængelige i DOM'en, når scriptet kører.
+Find Save Date Button:
+
+Scriptet forsøger at finde knappen med id save-date. Hvis knappen ikke findes, logges en fejlmeddelelse til konsollen, og scriptet afsluttes.
+Add Click Event Listener:
+
+Hvis knappen findes, tilføjes en klik-begivenhedslytter til knappen. Når knappen klikkes, udføres funktionen, der opretter og downloader kalenderbegivenheden.
+Create Calendar Event:
+
+Kalenderbegivenheden oprettes som en streng i iCalendar-format. Denne streng indeholder begivenhedsoplysninger som titel, starttidspunkt, sluttidspunkt, placering og beskrivelse.
+Create and Download Blob:
+
+En Blob oprettes fra kalenderbegivenhedsstrengen med MIME-typen text/calendar.
+En URL til Blob'en oprettes ved hjælp af URL.createObjectURL.
+Et midlertidigt link-element oprettes, og dets href-attribut sættes til Blob-URL'en. download-attributten sættes til filnavnet helsingor-kulturnat.ics.
+Linket tilføjes til dokumentet, klikkes på (for at starte download), og fjernes derefter fra dokumentet.
+Error Handling:
+
+Hvis der opstår en fejl under oprettelsen eller download af kalenderbegivenheden, logges en fejlmeddelelse til konsollen. -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     const saveDateButton = document.getElementById("save-date");
@@ -65,6 +88,41 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error("Error creating or downloading calendar event:", error);
         }
     });
+
+    // Countdown timer
+    
+    const targetDate = new Date("2025-09-15T12:00:00Z").getTime();
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+        const daysElement = document.getElementById("days");
+        const hoursElement = document.getElementById("hours");
+        const minutesElement = document.getElementById("minutes");
+
+        if (daysElement && hoursElement && minutesElement) {
+            daysElement.innerText = days.toString();
+            hoursElement.innerText = hours.toString();
+            minutesElement.innerText = minutes.toString();
+        }
+
+        if (distance < 0) {
+            clearInterval(countdownInterval);
+            if (daysElement && hoursElement && minutesElement) {
+                daysElement.innerText = "0";
+                hoursElement.innerText = "0";
+                minutesElement.innerText = "0";
+            }
+        }
+    }
+
+    const countdownInterval = setInterval(updateCountdown, 1000);
+    updateCountdown(); // Initial call to set the countdown immediately
 });
 </script>
 
