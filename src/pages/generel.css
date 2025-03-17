@@ -14,6 +14,10 @@ img {
   scroll-behavior: smooth;
 }
 
+body {
+  background-color: var(--primary_darkgrey);
+}
+
 html {
   --primary_darkgrey: #28282b;
   --secundary-oat: #eae1d4;
