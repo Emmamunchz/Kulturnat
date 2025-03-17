@@ -27,4 +27,27 @@ const { img, frame } = Astro.props;
     z-index: 1;
     scale: 0.95;
   }
+
+  @media (max-width: 960px) {
+    div {
+      position: relative;
+      height: 100%;
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      margin: 10px auto;
+    }
+
+    .image {
+      aspect-ratio: 1/1;
+      object-fit: cover;
+    }
+
+    .border {
+      position: absolute;
+      top: 0;
+      z-index: 1;
+      scale: 0.95;
+    }
+  }
 </style>

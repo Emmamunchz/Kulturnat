@@ -7,33 +7,30 @@ import Partners from "./Partners.astro";
 <footer>
   <div class="underline"></div>
   <div class="grid_1-1">
-    <div class="information">
-      <div class="contact">
-        <h2>Kontaktoplysninger</h2>
-        <p>Har du spørgsmål til Kulturnat?</p>
-        <p>
-          Email: <a href="mailto:kulturnatten@elsinore2032.dk"
-            >kulturnatten@elsinore2032.dk</a
-          >
-        </p>
-      </div>
-      <div class="socialmedia">
-        <h2>Følg os på<br />sociale medier:</h2>
-        <SoMe
-          icon="src/assets/facebook.svg"
-          url="https://www.facebook.com/kulturnathelsingor/?locale=da_DK"
-        />
-        <SoMe
-          icon="src/assets/instagram.svg"
-          url="https://www.instagram.com/"
-        />
-        <SoMe icon="src/assets/kultunaut.svg" url="https://www.kultunaut.dk/" />
-      </div>
+    <div class="contact">
+      <h2>Kontaktoplysninger</h2>
+      <p>Har du spørgsmål til Kulturnat?</p>
+      <p>
+        Email: <a href="mailto:kulturnatten@elsinore2032.dk"
+          >kulturnatten@elsinore2032.dk</a
+        >
+      </p>
     </div>
+    <div class="socialmedia">
+      <h2>Følg os på<br />sociale medier:</h2>
+      <SoMe
+        icon="src/assets/facebook.svg"
+        url="https://www.facebook.com/kulturnathelsingor/?locale=da_DK"
+      />
+      <SoMe icon="src/assets/instagram.svg" url="https://www.instagram.com/" />
+      <SoMe icon="src/assets/kultunaut.svg" url="https://www.kultunaut.dk/" />
+    </div>
+  </div>
+  <div class="order">
     <Newsletter />
   </div>
-  <Partners />
 </footer>
+<Partners />
 
 <style>
   .grid_1-1 {
@@ -63,5 +60,16 @@ import Partners from "./Partners.astro";
   }
   a:hover {
     opacity: 0.6;
+  }
+
+  @media (max-width: 960px) {
+    .grid_1-1 {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      grid-template-columns: 1fr;
+    }
+    .order {
+      order: -1;
+    }
   }
 </style>
