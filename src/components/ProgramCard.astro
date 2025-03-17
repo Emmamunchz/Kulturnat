@@ -1,0 +1,27 @@
+---
+const {img} = Astro.props
+const {p} = Astro.props
+const {h2} = Astro.props
+import ProgramButton from "../components/ProgramButton.astro"
+---
+
+<section class="program_container">
+    <img src={img} alt="placeholder">
+    <h2>{h2}</h2>
+    <p>{p}</p>
+    <button> <ProgramButton /> </button>
+
+</section>
+
+<style>
+.program_container {background-color: var(--secundary-oat);
+}
+h2 {color: var(--primary_darkgrey);
+align-self: center;}
+p {color: var(--primary_darkgrey);
+    align-self: center;
+}
+img {height: auto;
+width: 200px;}
+.program_container {display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr;} </style>

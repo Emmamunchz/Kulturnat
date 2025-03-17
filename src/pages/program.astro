@@ -11,15 +11,17 @@ import Moon from "../components/Moon.astro";
 import H1Button from "../components/H1Button.astro";
 import Ferry from "../components/Ferry.astro";
 import ImageBorder from "../components/ImageBorder.astro";
+import ProgramCard from "../components/ProgramCard.astro";
+import ProgramList from "../components/ProgramList.astro";
+import ProgramButton from "../components/ProgramButton.astro";
 ---
 <Layout>
 <main>
  <h1 style="color: var(--accent);">Program</h1>
 <h2>Find det der passer lige præcis til dig</h2>
 <p>Her finder du alle de spændende aktiviteter til programmet. Tryk og læs endnu mere, og bliv inspireret til hvad det næste du skal opleve skal være. </p>
-<FilterSystem tekst="Filtrer blandt byerne"/>
-
-
+<FilterSystem />
+<ProgramCard h2="Koncert" p="Tirsdag d 21/9 kl. 20:30" img="https://placehold.co/100x50"/>
 
 </main>
 </Layout>
@@ -29,6 +31,4 @@ main {
   width: 900px;
   margin: 0 auto;
 }
-
-
   </style>
