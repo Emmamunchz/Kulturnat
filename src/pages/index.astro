@@ -10,6 +10,7 @@ import Ferry from "../components/Ferry.astro";
 import ImageBorder from "../components/ImageBorder.astro";
 import Header from "../components/Header.astro";
 ---
+<head> <link class="favicon" rel="icon" href="favicon1.svg" > </head>
 
 <Layout>
   <Header />
@@ -128,6 +129,7 @@ import Header from "../components/Header.astro";
 </Layout>
 
 <style>
+  .favicon {fill: var(--accent);}
   /* Desktop */
   @media (min-width: 800px) {
     .span_1 {
