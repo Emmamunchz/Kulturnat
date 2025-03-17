@@ -1,45 +1,72 @@
 ---
-
+// Importér CSS
 import "./src/pages/generel.css";
 
-// tror noget alla for at lave countdown
-export interface Props {
-  image: string;
-  days: number;
-  hours: number;
-  minutes: number;
-}
-
-
+// Definér props i Astro'
 const { image, days, hours, minutes } = Astro.props;
-
 
 ---
 
-
 <div class="hero">
-  <img src=src/assets/hero.webp alt="Helsingør Kulturnat" class="background-image" />
+  <img src="src/assets/hero.webp" alt="Helsingør Kulturnat" class="background-image" />
   <div class="overlay">
     <div class="hero-content">
-        <img src=src/assets/titel.svg alt="Helsingør Kulturnat" class="titel" />
+        <img src="./src/assets/titel.svg" alt="Helsingør Kulturnat" class="titel" />
         <div class="countdown-tal">
             <div><span>{days}</span></div>
             <div><span>{hours}</span></div>
             <div><span>{minutes}</span></div>
           </div>
       <div class="countdown">
-        <div> DAGE</div>
+        <div>DAGE</div>
         <div>TIMER</div>
-        <div> MIN</div>
+        <div>MIN</div>
       </div>
-      <button class="cta">GEM DATOEN</button>
+      <button class="cta" id="save-date">GEM DATOEN</button>
     </div>
-    <img class="frame" src="src/assets/ramme-desk.svg" alt="frame" style="width: 90%; max-width: 5
-    1200px; height: auto;" />
-    <img class="frame-mobil" src="src/assets/ramme-mobil.svg" alt="frame" style="width: 90%; max-width: 5
-    1200px; height: auto;" />
+    <img class="frame" src="/src/assets/ramme-desk.svg" alt="frame" style="width: 100%; max-width: 1200px; height: auto;" />
+    <img class="frame-mobil" src="/src/assets/ramme-mobil.svg" alt="frame" style="width: 90%; max-width: 1200px; height: auto;" />
+  </div>
 </div>
-</div>
+
+<!-- JavaScript skal være klient-side -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const saveDateButton = document.getElementById("save-date");
+    if (!saveDateButton) {
+        console.error("Element with id 'save-date' not found.");
+        return;
+    }
+
+    saveDateButton.addEventListener("click", function () {
+        const event = [
+            "BEGIN:VCALENDAR",
+            "VERSION:2.0",
+            "BEGIN:VEVENT",
+            "SUMMARY:Helsingør Kulturnat",
+            "DTSTART:20250415T120000Z",
+            "DTEND:20250415T130000Z",
+            "LOCATION:Helsingør, Danmark",
+            "DESCRIPTION:Kom til Helsingør Kulturnat! 🎉",
+            "END:VEVENT",
+            "END:VCALENDAR"
+        ].join("\n");
+
+        try {
+            const blob = new Blob([event], { type: "text/calendar" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "helsingor-kulturnat.ics";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        } catch (error) {
+            console.error("Error creating or downloading calendar event:", error);
+        }
+    });
+});
+</script>
 
 <style>
     .hero {
@@ -79,7 +106,7 @@ const { image, days, hours, minutes } = Astro.props;
     font-weight: bold;
     position: absolute; 
     bottom: 60px; 
-    left: 140px; 
+    left: 90px; 
     z-index: 1000;
   }
   .countdown-tal {
@@ -90,7 +117,7 @@ const { image, days, hours, minutes } = Astro.props;
     font-weight: bold;
     position: absolute; 
     bottom: 100px; 
-    left: 130px; 
+    left: 80px; 
     z-index: 1000;
   }
   
@@ -102,7 +129,7 @@ const { image, days, hours, minutes } = Astro.props;
     font-weight: bold;
     font-family: ;
     bottom: 60px; 
-    right: 300px; 
+    right: 180px; 
     width: 400px; 
     height: auto;
     background-color: rgba(0, 0, 0, 0);
@@ -122,8 +149,8 @@ const { image, days, hours, minutes } = Astro.props;
     .titel {
     z-index: 1000;
     position: absolute; 
-    top: 70px; 
-    left: 125px; 
+    top: 30px; 
+    left: 30px; 
     width: 400px; 
     height: auto;
   }
