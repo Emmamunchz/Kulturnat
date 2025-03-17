@@ -4,45 +4,32 @@ import "./src/pages/generel.css";
 
 // Definér props i Astro'
 const { image, targetDate } = Astro.props;
+
 ---
 
 <div class="hero">
-  <img
-    src="src/assets/hero.webp"
-    alt="Helsingør Kulturnat"
-    class="background-image"
-  />
+  <img src="src/assets/hero.webp" alt="Helsingør Kulturnat" class="background-image" />
   <div class="overlay">
     <div class="hero-content">
-      <img
-        src="./src/assets/titel.svg"
-        alt="Helsingør Kulturnat"
-        class="titel"
-      />
-      <div class="countdown-tal">
-        <div><span id="days"></span></div>
-        <div><span id="hours"></span></div>
-        <div><span id="minutes"></span></div>
-      </div>
+        <img src="./src/assets/titel.svg" alt="Helsingør Kulturnat" class="titel" />
+        <div class="countdown-tal">
+            <div><span id="days"></span></div>
+            <div><span id="hours"></span></div>
+            <div><span id="minutes"></span></div>
+
+          </div>
       <div class="countdown">
         <div>DAGE</div>
         <div>TIMER</div>
         <div>MIN</div>
+
       </div>
       <button class="cta" id="save-date">GEM DATOEN</button>
     </div>
-    <img
-      class="frame"
-      src="/src/assets/ramme-desk.svg"
-      alt="frame"
-      style="width: 100%; max-width: 1200px; height: auto;"
-    />
-    <img
-      class="frame-mobil"
-      src="/src/assets/ramme-mobil.svg"
-      alt="frame"
-      style="width: 90%; max-width: 1200px; height: auto;"
-    />
+    <img src="src/assets/baby.svg" alt="Helsingør Kulturnat" class="baby" />
+
+    <img class="frame" src="/src/assets/ramme-desk.svg" alt="frame" style="width: 100%; max-width: 1200px; height: auto;" />
+    <img class="frame-mobil" src="/src/assets/ramme-mobil.svg" alt="frame" style="width: 90%; max-width: 1200px; height: auto;" />
   </div>
 </div>
 
@@ -69,206 +56,218 @@ Error Handling:
 
 Hvis der opstår en fejl under oprettelsen eller download af kalenderbegivenheden, logges en fejlmeddelelse til konsollen. -->
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
     const saveDateButton = document.getElementById("save-date");
     if (!saveDateButton) {
-      console.error("Element with id 'save-date' not found.");
-      return;
+        console.error("Element with id 'save-date' not found.");
+        return;
     }
 
     saveDateButton.addEventListener("click", function () {
-      const event = [
-        "BEGIN:VCALENDAR",
-        "VERSION:2.0",
-        "BEGIN:VEVENT",
-        "SUMMARY:Helsingør Kulturnat",
-        "DTSTART:20250415T120000Z",
-        "DTEND:20250415T130000Z",
-        "LOCATION:Helsingør, Danmark",
-        "DESCRIPTION:Kom til Helsingør Kulturnat! 🎉",
-        "END:VEVENT",
-        "END:VCALENDAR",
-      ].join("\n");
+        const event = [
+            "BEGIN:VCALENDAR",
+            "VERSION:2.0",
+            "BEGIN:VEVENT",
+            "SUMMARY:Helsingør Kulturnat",
+            "DTSTART:20250415T120000Z",
+            "DTEND:20250415T130000Z",
+            "LOCATION:Helsingør, Danmark",
+            "DESCRIPTION:Kom til Helsingør Kulturnat! 🎉",
+            "END:VEVENT",
+            "END:VCALENDAR"
+        ].join("\n");
 
-      try {
-        const blob = new Blob([event], { type: "text/calendar" });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "helsingor-kulturnat.ics";
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-      } catch (error) {
-        console.error("Error creating or downloading calendar event:", error);
-      }
+        try {
+            const blob = new Blob([event], { type: "text/calendar" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "helsingor-kulturnat.ics";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        } catch (error) {
+            console.error("Error creating or downloading calendar event:", error);
+        }
     });
 
     // Countdown timer
-
+    
     const targetDate = new Date("2025-09-15T12:00:00Z").getTime();
 
     function updateCountdown() {
-      const now = new Date().getTime();
-      const distance = targetDate - now;
+        const now = new Date().getTime();
+        const distance = targetDate - now;
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
-      );
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 
-      const daysElement = document.getElementById("days");
-      const hoursElement = document.getElementById("hours");
-      const minutesElement = document.getElementById("minutes");
+        const daysElement = document.getElementById("days");
+        const hoursElement = document.getElementById("hours");
+        const minutesElement = document.getElementById("minutes");
 
-      if (daysElement && hoursElement && minutesElement) {
-        daysElement.innerText = days.toString();
-        hoursElement.innerText = hours.toString();
-        minutesElement.innerText = minutes.toString();
-      }
-
-      if (distance < 0) {
-        clearInterval(countdownInterval);
         if (daysElement && hoursElement && minutesElement) {
-          daysElement.innerText = "0";
-          hoursElement.innerText = "0";
-          minutesElement.innerText = "0";
+            daysElement.innerText = days.toString();
+            hoursElement.innerText = hours.toString();
+            minutesElement.innerText = minutes.toString();
         }
-      }
+
+        if (distance < 0) {
+            clearInterval(countdownInterval);
+            if (daysElement && hoursElement && minutesElement) {
+                daysElement.innerText = "0";
+                hoursElement.innerText = "0";
+                minutesElement.innerText = "0";
+            }
+        }
     }
 
     const countdownInterval = setInterval(updateCountdown, 1000);
     updateCountdown(); // Initial call to set the countdown immediately
-  });
+});
 </script>
 
 <style>
-  .hero {
-    position: relative;
-    width: 100%;
-    height: 100vh;
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+  
+    .background-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: relative;
+      top: 0;
+      left: 0;
+    }
+  
+    .overlay {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      color: black;
+      z-index: 1000;
+    }
+  
+    .countdown {
+    color: #28282B;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-  }
-
-  .background-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: relative;
-    top: 0;
-    left: 0;
-  }
-
-  .overlay {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    color: black;
-    z-index: 1000;
-  }
-
-  .countdown {
-    color: #28282b;
-    display: flex;
-    gap: 120px;
-    font-size: 2rem;
+    gap: 100px;
+    font-size: 2cqw;
     font-weight: bold;
-    position: absolute;
-    bottom: 60px;
-    left: 90px;
+    position: absolute; 
+    bottom: 60px; 
+    left: 90px; 
     z-index: 1000;
   }
   .countdown-tal {
-    color: #28282b;
+    color: #28282B;
     display: flex;
-    gap: 125px;
-    font-size: 5rem;
+    gap: 80px;
+    font-size: 6cqw;
     font-weight: bold;
-    position: absolute;
-    bottom: 100px;
-    left: 80px;
+    position: absolute; 
+    bottom: 80px; 
+    left: 70px; 
     z-index: 1000;
   }
-
-  .cta {
-    color: #28282b;
+  .baby {
+  width: auto;
+    position: absolute; 
+    bottom: 50px; 
+    right: 70px; 
     z-index: 1000;
-    position: absolute;
+  }
+    .cta {
+    color: #28282B;
+    z-index: 1000;
+    position: absolute; 
     font-size: 2.2rem;
     font-weight: bold;
-    font-family:;
-    bottom: 60px;
-    right: 180px;
-    width: 400px;
+    font-family: ;
+    bottom: 60px; 
+    right: 180px; 
+    width: 400px; 
     height: auto;
     background-color: rgba(0, 0, 0, 0);
     border-color: rgba(0, 0, 0, 0);
-  }
+    }
+  
+    .frame {
+      margin-top: 0px;
+      z-index: 500; }
+      .frame-mobil {
+      margin-top: 0px;
+      z-index: 500;
+      display: none;
+     }
 
-  .frame {
-    margin-top: 0px;
-    z-index: 500;
-  }
-  .frame-mobil {
-    margin-top: 0px;
-    z-index: 500;
-    display: none;
-  }
 
-  .titel {
+    .titel {
     z-index: 1000;
-    position: absolute;
-    top: 30px;
-    left: 30px;
-    width: 400px;
+    position: absolute; 
+    top: 30px; 
+    left: 30px; 
+    width: 30%; 
     height: auto;
   }
 
-  @media (max-width: 800px) {
-    .countdown {
-      gap: 67px;
-      font-size: 1.5rem;
-      font-weight: bold;
-      position: absolute;
-      bottom: 30px;
-      left: 50px;
-    }
-    .countdown-tal {
-      gap: 80px;
-      font-size: 3rem;
-      font-weight: bold;
-      position: absolute;
-      bottom: 60px;
-      left: 50px;
-    }
-    .cta {
-      font-size: 1.5rem;
-      font-weight: bold;
-      font-family:;
-      bottom: 130px;
-      right: 170px;
-      width: 400px;
-      height: auto;
-    }
-    .frame {
-      display: none;
-    }
-    .frame-mobil {
-      display: block;
-    }
-    .titel {
-      z-index: 1000;
-      position: absolute;
-      top: 55px;
-      left: 60px;
-      width: 200px;
-      height: auto;
-    }
+    @media (max-width: 800px) {
+        .countdown {
+            gap: 67px;
+            font-size: 4cqw;
+
+    font-weight: bold;
+    position: absolute; 
+    bottom: 30px; 
+    left: 50px; 
+        }
+        .countdown-tal {
+            gap: 80px;
+    font-size: 8cqw;
+    font-weight: bold;
+    position: absolute; 
+    bottom: 60px; 
+    left: 50px; 
+        }
+        .cta {
+            font-size: 1.5rem;
+    font-weight: bold;
+    bottom: 130px; 
+    right: 170px; 
+    width: 400px; 
+    height: auto;
+        }
+        .frame {
+        display: none;
+        }
+        .frame-mobil {
+        display: block;
+   
+        }
+        .titel {
+            z-index: 1000;
+    position: absolute; 
+    top: 55px; 
+    left: 60px; 
+    width: 40%; 
+    height: auto;
+        }
+        .baby {
+  width: 60px;
+    position: absolute; 
+    bottom: 50px; 
+    right: 50px; 
+    z-index: 1000;
   }
-</style>
+    }
+  </style>
