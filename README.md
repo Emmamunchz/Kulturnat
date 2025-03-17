@@ -143,7 +143,7 @@ Et layout er en speciel type komponent, der bruges til at strukturere sider og g
 
 Slots bruges til at indsætte dynamisk indhold i en komponent. Det er sektionen, hvor det indhold man vil indsætte inde for vinkelparenteserne.
 
-### Props
+#### Props
 
 Const bruges sammen med Astro.props til at modtage og bruge props (egenskaber) i en komponent. Props gør det muligt at sende data fra en forælder-komponent eller en side til en anden komponent. Det er en måde for komponenter og sider at kommunikere og sende data.
 
