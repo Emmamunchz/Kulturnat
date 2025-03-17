@@ -1,0 +1,22 @@
+---
+import FilterClick from "../components/FilterClick.astro"
+const {tekst} = Astro.props
+---
+
+
+<div>
+    <p>{tekst}</p>
+  <FilterClick />  
+</div>
+
+<style>
+    div {height: max-content;
+   border: 1px solid var(--accent);
+   padding: 5px;
+   border-radius: 25px;
+   gap: 20px;
+   width: max-content;
+   display: flex;
+   flex-direction: row;}
+   p {margin-left: 10px;}
+</style>
