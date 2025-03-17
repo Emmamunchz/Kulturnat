@@ -1,0 +1,50 @@
+---
+const {img} = Astro.props
+const {p} = Astro.props
+const {h2} = Astro.props
+import ProgramButton from "../components/ProgramButton.astro"
+---
+
+<section class="program_container">
+    <img src={img} alt="placeholder">
+    <h2 class="list_h2">{h2}</h2>
+    <p>{p}</p>
+    <ProgramButton icon="+" farve="var(--accent)"/>
+
+</section>
+<section class="program_container_card">
+<div class="overskrift_card">
+    <h2>{h2}</h2>
+    <p>{p}</p>
+    <div class="tekst_billede">
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi sit ullam rem at facere nam accusamus sapiente, aut odit ad asperiores quis itaque deserunt expedita voluptate nesciunt officiis quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, aperiam. Exercitationem optio nemo corrupti et atque quam cumque eum dolore, pariatur suscipit velit illo quidem a aperiam fugit, ullam praesentium!</p>
+        <img src="https://placehold.co/400x400" alt="placeholder">
+    </div>
+</div>
+
+</section>
+
+<style>
+    .overskrift_card {background-color: var(--secundary-oat);
+        padding: 20px;
+}
+.tekst_billede {display: grid;
+grid-template-columns: 1fr 1fr;
+padding: 20px;}
+.program_container {background-color: var(--secundary-oat);
+}
+.list_h2 {color: var(--primary_darkgrey);
+align-self: center;
+text-align: center;}
+h2 {
+    color: var(--primary_darkgrey);
+
+}
+p {color: var(--primary_darkgrey);
+    align-self: center;
+}
+
+.program_container {display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr;
+padding: 10px;
+margin-top: 25px;} </style>
