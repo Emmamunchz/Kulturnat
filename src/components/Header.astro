@@ -22,7 +22,7 @@ import "./src/pages/generel.css";
         if (menu.classList.contains("open")) {
           menuHover.src = "src/assets/active_burger.svg"; // Billedet når menuen er åben
         } else {
-          menuHover.src = "src/assets/closed_burger.png"; // Billedet når menuen er lukket
+          menuHover.src = "src/assets/burger_closed_ikon.svg"; // Billedet når menuen er lukket
         }
       });
 
@@ -31,7 +31,7 @@ import "./src/pages/generel.css";
         nav.classList.remove("active");
         menu.classList.remove("open");
         menuHover.classList.remove("active");
-        menuHover.src = "src/assets/closed_burger.png"; // Billedet når menuen er lukket
+        menuHover.src = "src/assets/burger_closed_ikon.svg"; // Billedet når menuen er lukket
       });
     }
   });
@@ -49,6 +49,7 @@ import "./src/pages/generel.css";
       <li><a href="#">Favoritter</a></li>
       <li><a href="#">Galleri</a></li>
       <li><a href="#">Bliv arrangør</a></li>
+
       <div class="ekstra-menu_burger">
         <div class="linje"></div>
         <div class="grid_1-1">
@@ -94,6 +95,15 @@ import "./src/pages/generel.css";
       </div>
     </ul>
   </nav>
+
+  <div class="burger_ekstra_ikoner">
+    <a href="#"
+      ><img src="src/assets/program_ikon.svg" alt="" class="burger_icon" /></a
+    >
+    <a href="#"
+      ><img src="src/assets/gemt_ikon.svg" alt="" class="burger_icon" /></a
+    >
+  </div>
 
   <div class="burger">
     <div class="burger_hover">
@@ -149,7 +159,6 @@ import "./src/pages/generel.css";
     width: 100%;
     z-index: 100;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding-left: 20px;
     padding-right: 20px;
@@ -158,6 +167,7 @@ import "./src/pages/generel.css";
   nav {
     display: flex;
     align-items: center;
+    margin-inline-start: auto;
   }
 
   .menu {
@@ -194,6 +204,7 @@ import "./src/pages/generel.css";
     width: 30px;
     height: 20px;
     cursor: pointer;
+    align-self: right;
   }
 
   .burger {
@@ -203,11 +214,24 @@ import "./src/pages/generel.css";
   .ekstra-menu_burger {
     display: none;
   }
-  @media screen and (max-width: 750px) {
+
+  .burger_ekstra_ikoner {
+    display: none;
+    align-self: right;
+    margin: 0 10px;
+  }
+  @media screen and (max-width: 970px) {
     .burger_icon {
       position: relative;
       z-index: 1001;
       align-items: center;
+    }
+
+    .burger_ekstra_ikoner {
+      display: flex;
+      flex-direction: row;
+      margin-inline-start: auto;
+      gap: 10px;
     }
     .grid_1-1 {
       display: grid;
@@ -234,11 +258,18 @@ import "./src/pages/generel.css";
     }
     .menu {
       display: none;
-      margin: 0;
+      margin: 0rem;
     }
 
     .burger {
-      display: block;
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+    }
+
+    .burger img {
+      width: 25px;
+      height: 25px;
     }
 
     nav.active .menu {
@@ -305,21 +336,17 @@ import "./src/pages/generel.css";
       margin-top: 1rem;
     }
 
+    .burger_hover {
+      display: block;
+      align-items: center;
+    }
+
     .kommune-logo_burger {
       display: block;
       width: 40%;
       margin-left: 0 auto;
       margin-top: 3rem;
       margin-left: 2rem;
-    }
-
-    header {
-      position: fixed;
-      top: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
     }
 
     .ekstra-menu_burger {
