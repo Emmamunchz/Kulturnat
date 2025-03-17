@@ -1,0 +1,294 @@
+---
+import SoMe from "./SoMe.astro";
+import "./src/pages/generel.css";
+---
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const burger = document.querySelector(".burger");
+    const nav = document.querySelector("nav");
+    const menu = document.querySelector(".menu");
+    const menuHover = document.querySelector(".burger_hover img");
+
+    if (burger && nav) {
+      burger.addEventListener("click", () => {
+        burger.classList.toggle("active");
+        nav.classList.toggle("active");
+        menu.classList.toggle("open");
+        menuHover.classList.toggle("active");
+
+        if (menu.classList.contains("open")) {
+          menuHover.src = "../assets/active_burger.svg"; // Billedet når menuen er åben
+        } else {
+          menuHover.src = "../assets/closed_burger.png"; // Billedet når menuen er lukket
+        }
+      });
+    }
+
+    if (menu) {
+      menu.addEventListener("click", () => {
+        burger.classList.remove("active");
+        nav.classList.remove("active");
+        menu.classList.remove("open");
+        menuHover.classList.remove("active");
+        menuHover.src = "../assets/closed_burger.png"; // Billedet når menuen er lukket
+      });
+    }
+  });
+</script>
+
+<header>
+  <div class="header-container">
+    <a href="index.astro">
+      <img src="../assets/Logo.svg" class="img_logo" />
+    </a>
+  </div>
+  <nav>
+    <ul class="menu">
+      <li><a href="program.astro">Programmet</a></li>
+      <li><a href="#">Favoritter</a></li>
+      <li><a href="#">Galleri</a></li>
+      <li><a href="#">Bliv arrangør</a></li>
+      <div class="ekstra-menu_burger">
+        <div class="linje"></div>
+        <div class="grid_1-1">
+          <h2>Er du fra Helsingborg?</h2>
+          <a href="#"> &nbsp Køb billet her</a>
+        </div>
+        <div class="grid_1-1">
+          <h2>Har du andre spørgsmål?</h2>
+          <a href="#"> &nbsp Send en mail</a>
+        </div>
+        <div class="grid_1-1">
+          <h2>Vil du gerne have opdateringer?</h2>
+          <a href="#"> &nbsp Tilmeld dig her</a>
+        </div>
+        <div class="grid_1-1">
+          <SoMe
+            icon="src/assets/facebook.svg"
+            url="https://www.facebook.com/kulturnathelsingor/?locale=da_DK"
+          />
+          <p>Facebook</p>
+        </div>
+        <div class="grid_1-1">
+          <SoMe
+            icon="src/assets/instagram.svg"
+            url="https://www.instagram.com/"
+          />
+          <p>Instagram</p>
+        </div>
+        <div class="grid_1-1">
+          <SoMe
+            icon="src/assets/kultunaut.svg"
+            url="https://www.kultunaut.dk/"
+          />
+          <p>Kultunaut.dk</p>
+        </div>
+      </div>
+    </ul>
+  </nav>
+
+  <div class="burger">
+    <div class="burger_hover">
+      <img src="../assets/closed_burger.png" alt="" />
+    </div>
+  </div>
+</header>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .img_logo {
+    width: 90%;
+    margin-left: 2rem;
+  }
+
+  .linje {
+    height: 1px;
+    background-color: var(--accent);
+    width: 80%;
+    margin: 10px;
+    margin-left: 1.1rem;
+  }
+
+  .header-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo {
+    width: 100px;
+    margin-right: 10px;
+  }
+
+  .menu_left {
+    margin: 0;
+  }
+
+  .menu_left p {
+    font-family: "neue_haas_grotesk_display45Lt";
+    font-size: 22px;
+    margin: 0;
+  }
+
+  header {
+    position: sticky;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+  }
+
+  .menu {
+    display: flex;
+    list-style: none;
+    margin: 1rem;
+    padding: 0;
+  }
+
+  .menu li {
+    margin-right: 20px;
+  }
+
+  .menu li:last-child {
+    margin-right: 0;
+  }
+
+  .menu a {
+    display: block;
+    padding: 10px;
+    color: var(--secundary-oat);
+    text-decoration: none;
+    transition: color 0.3s;
+    text-align: end;
+    font-size: 18px;
+    font-family: "neue_haas_grotesk_display45Lt";
+  }
+
+  .menu a:hover {
+    scale: 1.02;
+  }
+
+  .burger {
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+  }
+
+  .burger .line {
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    margin-bottom: 5px;
+    transition: 0.2s linear;
+  }
+  .burger {
+    display: none;
+  }
+
+  .ekstra-menu_burger {
+    display: none;
+  }
+  @media screen and (max-width: 750px) {
+    .grid_1-1 {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: right;
+      justify-content: center;
+      margin-top: 0.5rem;
+    }
+    .menu {
+      display: none;
+      margin: 0;
+      margin-top: 1rem;
+    }
+    .burger {
+      display: block;
+    }
+
+    nav.active .menu {
+      display: block;
+      background-color: var(--primary_darkgrey);
+      position: absolute;
+      top: 94px;
+      right: 0;
+      width: 70%;
+      z-index: 1;
+    }
+
+    nav.active .menu li {
+      margin: 10px 20px;
+    }
+
+    nav.active .menu a {
+      font-size: 36px;
+      font-family: "Anton", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      color: var(--accent);
+      text-decoration: underline;
+      padding: 0;
+      text-align: left;
+    }
+
+    nav.active .menu .ekstra-menu_burger a {
+      font-size: 14px;
+      font-family: "neue_haas_grotesk_display45Lt";
+      color: var(--accent);
+      text-decoration: none;
+      padding: 0;
+      text-align: left;
+    }
+
+    h2 {
+      font-size: 16px;
+      font-family: "neue_haas_grotesk_display65Md";
+      color: var(--accent);
+      text-decoration: none;
+      padding: 0;
+      text-align: left;
+      padding-left: 1.1rem;
+    }
+
+    nav.active .menu a:hover {
+      text-decoration: none;
+    }
+
+    .img_logo {
+      width: 90%;
+      margin-left: 1rem;
+    }
+
+    .text_logo {
+      font-size: 22px;
+      font-weight: 700;
+      text-decoration: none;
+      font-family: "neue_haas_grotesk_display75Bd";
+      margin-left: 1rem;
+    }
+
+    header {
+      position: sticky;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .ekstra-menu_burger {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+</style>
