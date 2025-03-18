@@ -24,6 +24,7 @@ html {
   --secundary-pink: #ad3f61;
   --accent: #d5ff8b;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 h1 {
