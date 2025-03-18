@@ -2,7 +2,7 @@
 const {tekst} = Astro.props
 import FilterButton from "../components/FilterButton.astro"
 ---
-<h2>Filtrer mellem byerne</h2>
+<h2><br>Filtrer mellem byerne</h2>
 <div class="underline"></div>
 <div class="flex">
 <FilterButton tekst="Alle"/>
@@ -11,7 +11,7 @@ import FilterButton from "../components/FilterButton.astro"
 <FilterButton tekst="Espergærde"/>
 </div>
 
-<h2>Filtrer mellem kategorierne</h2>
+<h2><br>Filtrer mellem kategorierne</h2>
 <div class="underline"></div><div class="flex">
 <FilterButton tekst="Alt"/>
 <FilterButton tekst="Musik"/>
@@ -23,11 +23,16 @@ import FilterButton from "../components/FilterButton.astro"
 <FilterButton tekst="Leg"/>
 <FilterButton tekst="Foredrag"/>
 </div>
+<div class="mellemrum">
+</div>
 <style>
     .flex{
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
+    }
+    .mellemrum {
+        padding: 40px;
     }
     
     .underline { height: 1px;
