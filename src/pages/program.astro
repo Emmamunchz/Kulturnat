@@ -15,27 +15,21 @@ import ProgramCard from "../components/ProgramCard.astro";
 import ProgramList from "../components/ProgramList.astro";
 import ProgramButton from "../components/ProgramButton.astro";
 ---
-
+<head> <link class="favicon" rel="icon" href="favicon1.svg" > </head>
 <Layout>
-  <main>
-    <h1 style="color: var(--accent);"><br />Program</h1>
-    <h2><br />Find det der passer lige præcis til dig</h2>
-    <p>
-      Her finder du alle de spændende aktiviteter til programmet. Tryk og læs
-      endnu mere, og bliv inspireret til hvad det næste du skal opleve skal
-      være.
-    </p>
-    <FilterSystem />
-    <ProgramCard
-      h2="Koncert"
-      p="Tirsdag d 21/9 kl. 20:30"
-      img="https://placehold.co/100x50"
-    />
-  </main>
+<main>
+ <h1 style="color: var(--accent);"><br>Program</h1>
+<h2><br>Find det der passer lige præcis til dig</h2>
+<p>Her finder du alle de spændende aktiviteter til programmet. Tryk og læs endnu mere, og bliv inspireret til hvad det næste du skal opleve skal være. </p>
+<FilterSystem />
+<ProgramCard h2="Koncert" p="Tirsdag d 21/9 kl. 20:30" img="https://placehold.co/100x50"/>
+
+</main>
 </Layout>
-<style>
-  main {
-    width: 900px;
-    margin: 0 auto;
-  }
-</style>
+<style> 
+
+main {
+  width: 900px;
+  margin: 0 auto;
+}
+  </style>

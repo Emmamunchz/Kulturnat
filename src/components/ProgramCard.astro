@@ -2,6 +2,8 @@
 // Importér props og komponenter
 const { img, p, h2 } = Astro.props;
 import ProgramButton from "../components/ProgramButton.astro";
+import "./src/pages/generel.css";
+
 ---
 
 <ul>
@@ -18,6 +20,7 @@ import ProgramButton from "../components/ProgramButton.astro";
 
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quaerat commodi dolorem recusandae! Assumenda autem modi placeat, voluptates quos reiciendis ipsa ea nobis quisquam fugiat veniam voluptate officiis ad nam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quaerat commodi dolorem recusandae! Assumenda autem modi placeat, voluptates quos reiciendis ipsa ea nobis quisquam fugiat veniam voluptate officiis ad nam?</p>
   </li>
+
   <li>
     <input type="checkbox" checked>
     <i></i>
@@ -28,8 +31,53 @@ import ProgramButton from "../components/ProgramButton.astro";
         <p class="by">[ Helsingør d 21 / 09 kl 13:45 ]</p>
 
       </div></div>
+       
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quaerat commodi dolorem recusandae! Assumenda autem modi placeat, voluptates quos reiciendis ipsa ea nobis quisquam fugiat veniam voluptate officiis ad nam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quaerat commodi dolorem recusandae! Assumenda autem modi placeat, voluptates quos reiciendis ipsa ea nobis quisquam fugiat veniam voluptate officiis ad nam?</p>     
 
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quaerat commodi dolorem recusandae! Assumenda autem modi placeat, voluptates quos reiciendis ipsa ea nobis quisquam fugiat veniam voluptate officiis ad nam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quaerat commodi dolorem recusandae! Assumenda autem modi placeat, voluptates quos reiciendis ipsa ea nobis quisquam fugiat veniam voluptate officiis ad nam?</p>  </li>
+
+</li>
+  <li>
+    <input type="checkbox" checked>
+    <i></i>
+    <div class="content-box">
+      <div class="header">
+        <img src="src/assets/hero.webp" alt="Koncert">
+        <h2>Workshops</h2>
+        <p class="by">[ Helsingør d 21 / 09 kl 13:45 ]</p>
+
+      </div>    </div>
+
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quaerat commodi dolorem recusandae! Assumenda autem modi placeat, voluptates quos reiciendis ipsa ea nobis quisquam fugiat veniam voluptate officiis ad nam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quaerat commodi dolorem recusandae! Assumenda autem modi placeat, voluptates quos reiciendis ipsa ea nobis quisquam fugiat veniam voluptate officiis ad nam?</p>
+  </li>
+  <li>
+    <input type="checkbox" checked>
+    <i></i>
+    <div class="content-box">
+      <div class="header">
+        <img src="src/assets/hero.webp" alt="Koncert">
+        <h2>Koncert</h2>
+        <p class="by">[ Helsingør d 21 / 09 kl 13:45 ]</p>
+
+      </div>    </div>
+
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quaerat commodi dolorem recusandae! Assumenda autem modi placeat, voluptates quos reiciendis ipsa ea nobis quisquam fugiat veniam voluptate officiis ad nam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quaerat commodi dolorem recusandae! Assumenda autem modi placeat, voluptates quos reiciendis ipsa ea nobis quisquam fugiat veniam voluptate officiis ad nam?</p>
+  </li>
+
+  <li>
+    <input type="checkbox" checked>
+    <i></i>
+    <div class="content-box">
+      <div class="header">
+        <img src="src/assets/hero.webp" alt="Koncert">
+        <h2>Teater</h2>
+        <p class="by">[ Helsingør d 21 / 09 kl 13:45 ]</p>
+
+      </div></div>
+       
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quaerat commodi dolorem recusandae! Assumenda autem modi placeat, voluptates quos reiciendis ipsa ea nobis quisquam fugiat veniam voluptate officiis ad nam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quaerat commodi dolorem recusandae! Assumenda autem modi placeat, voluptates quos reiciendis ipsa ea nobis quisquam fugiat veniam voluptate officiis ad nam?</p>     
+
+
+</li>
   <li>
     <input type="checkbox" checked>
     <i></i>
@@ -45,11 +93,15 @@ import ProgramButton from "../components/ProgramButton.astro";
   </li>
 </ul>
 
+
+
 <style>
+ 
     .by{
         position: relative;
         font-size: 1rem;
         top: -25px;
+        border: none;
     }
   .transition, ul li i:before, ul li i:after, p {
     transition: all 0.25s ease-in-out;
@@ -94,6 +146,8 @@ import ProgramButton from "../components/ProgramButton.astro";
     opacity: 1;
     transform: translate(0, 0);
     z-index: 2;
+    border: 0.5px solid #000;
+
   }
 
   ul {
@@ -139,6 +193,9 @@ import ProgramButton from "../components/ProgramButton.astro";
     background-color: #D5FF8B;
     width: 3px;
     height: 9px;
+    right: 40px;
+    top: 50px;
+    
   }
 
   ul li i:before {
@@ -176,7 +233,6 @@ import ProgramButton from "../components/ProgramButton.astro";
   .content-box {
     background-color: #EAE1D4;
     padding: 20px;
-    border: 2px solid #000;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 
