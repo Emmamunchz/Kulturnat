@@ -1,12 +1,33 @@
-<div></div>
+<div class="clickable"></div>
 
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const divs = document.querySelectorAll(".clickable");
+
+    divs.forEach((div) => {
+      // Tilføj eventlistener til hver knap
+      div.addEventListener("click", () => {
+        // Toggler en klasse, der tilføjer baggrundsfarve
+        div.classList.toggle("active");
+      });
+    });
+  });
+</script>
 
 <style>
-    div{
-        height: 30px;
-        aspect-ratio: 1/1;
-        border-radius: 100%;
-        /* background-color: var(--accent); */
-        border: 1px solid var(--accent);
-    }
+  .clickable {
+    height: 30px;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
+    border: 1px solid var(--accent);
+    transition: transform 0.3s ease; /* Glidende overgang */
+  }
+
+  .clickable:hover {
+    scale: 1.1;
+  }
+
+  .clickable.active {
+    background-color: var(--accent); /* Tilføjer baggrundsfarve */
+  }
 </style>
