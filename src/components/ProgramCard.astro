@@ -1,6 +1,6 @@
 ---
 // Importér props og komponenter
-const { img, p, h2 } = Astro.props;
+const { img, p, h2, by } = Astro.props;
 import ProgramButton from "../components/ProgramButton.astro";
 import "./src/pages/generel.css";
 ---
@@ -11,136 +11,22 @@ import "./src/pages/generel.css";
     <i></i>
     <div class="content-box">
       <div class="header">
-        <img src="src/assets/hero.webp" alt="Koncert" />
-        <h2>Koncert</h2>
-        <p class="by">[ Helsingør d 21 / 09 kl 13:45 ]</p>
-      </div>
-    </div>
-    <div class="wrapper">
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quaerat
-        commodi dolorem recusandae! Assumenda autem modi placeat, voluptates
-        quos reiciendis ipsa ea nobis quisquam fugiat veniam voluptate officiis
-        ad nam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
-        quaerat commodi dolorem recusandae! Assumenda autem modi placeat,
-        voluptates quos reiciendis ipsa ea nobis quisquam fugiat veniam
-        voluptate officiis ad nam?
-      </p>
-    </div>
-  </li>
-
-  <li>
-    <input type="checkbox" checked />
-    <i></i>
-    <div class="content-box">
-      <div class="header">
-        <img src="src/assets/hero.webp" alt="Koncert" />
-        <h2>Teater</h2>
-        <p class="by">[ Helsingør d 21 / 09 kl 13:45 ]</p>
-      </div>
-    </div>
-
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quaerat
-      commodi dolorem recusandae! Assumenda autem modi placeat, voluptates quos
-      reiciendis ipsa ea nobis quisquam fugiat veniam voluptate officiis ad
-      nam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quaerat
-      commodi dolorem recusandae! Assumenda autem modi placeat, voluptates quos
-      reiciendis ipsa ea nobis quisquam fugiat veniam voluptate officiis ad nam?
-    </p>
-  </li>
-  <li>
-    <input type="checkbox" checked />
-    <i></i>
-    <div class="content-box">
-      <div class="header">
-        <img src="src/assets/hero.webp" alt="Koncert" />
-        <h2>Workshops</h2>
-        <p class="by">[ Helsingør d 21 / 09 kl 13:45 ]</p>
-      </div>
-    </div>
-
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quaerat
-      commodi dolorem recusandae! Assumenda autem modi placeat, voluptates quos
-      reiciendis ipsa ea nobis quisquam fugiat veniam voluptate officiis ad
-      nam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quaerat
-      commodi dolorem recusandae! Assumenda autem modi placeat, voluptates quos
-      reiciendis ipsa ea nobis quisquam fugiat veniam voluptate officiis ad nam?
-    </p>
-  </li>
-  <li>
-    <input type="checkbox" checked />
-    <i></i>
-    <div class="content-box">
-      <div class="header">
-        <img src="src/assets/hero.webp" alt="Koncert" />
-        <h2>Koncert</h2>
-        <p class="by">[ Helsingør d 21 / 09 kl 13:45 ]</p>
-      </div>
-    </div>
-
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quaerat
-      commodi dolorem recusandae! Assumenda autem modi placeat, voluptates quos
-      reiciendis ipsa ea nobis quisquam fugiat veniam voluptate officiis ad
-      nam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quaerat
-      commodi dolorem recusandae! Assumenda autem modi placeat, voluptates quos
-      reiciendis ipsa ea nobis quisquam fugiat veniam voluptate officiis ad nam?
-    </p>
-  </li>
-
-  <li>
-    <input type="checkbox" checked />
-    <i></i>
-    <div class="content-box">
-      <div class="header">
-        <img src="src/assets/hero.webp" alt="Koncert" />
-        <h2>Teater</h2>
-        <p class="by">[ Helsingør d 21 / 09 kl 13:45 ]</p>
-      </div>
-    </div>
-
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quaerat
-      commodi dolorem recusandae! Assumenda autem modi placeat, voluptates quos
-      reiciendis ipsa ea nobis quisquam fugiat veniam voluptate officiis ad
-      nam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quaerat
-      commodi dolorem recusandae! Assumenda autem modi placeat, voluptates quos
-      reiciendis ipsa ea nobis quisquam fugiat veniam voluptate officiis ad nam?
-    </p>
-  </li>
-  <li>
-    <input type="checkbox" checked />
-    <i></i>
-    <div class="content-box">
-      <div class="header">
-        <img src="src/assets/hero.webp" alt="Koncert" />
-        <h2>Workshops</h2>
-        <p class="by">[ Helsingør d 21 / 09 kl 13:45 ]</p>
+        <img src={img} alt="Koncert" class="koncert" />
+        <h2>{h2}</h2>
+        <p class="by">{by}</p>
       </div>
     </div>
     <div class="wrapper">
       <div class="wrapper_grid">
         <div class="tekst_gemknap">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
-            quaerat commodi dolorem recusandae! Assumenda autem modi placeat,
-            voluptates quos reiciendis ipsa ea nobis quisquam fugiat veniam
-            voluptate officiis ad nam?Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Nobis quaerat commodi dolorem recusandae!
-            Assumenda autem modi placeat, voluptates quos reiciendis ipsa ea
-            nobis quisquam fugiat veniam voluptate officiis ad nam?
-          </p>
+          <p>{p}</p>
         </div>
 
-        <img src="src/assets/hero.webp" alt="billedetest" />
+        <img src={img} alt="billedetest" />
       </div>
     </div>
   </li>
 </ul>
-
-<img src="src/assets/aaben_program_knap.svg" alt="" />
 
 <style>
   .wrapper {
@@ -159,7 +45,7 @@ import "./src/pages/generel.css";
   }
   .by {
     position: relative;
-    font-size: 22px;
+    font-size: 18px;
     border: none;
   }
   .transition,
@@ -197,7 +83,7 @@ import "./src/pages/generel.css";
     font-family: "Anton", sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 36px;
+    font-size: 28px;
   }
 
   p {
@@ -256,7 +142,7 @@ import "./src/pages/generel.css";
   ul li i:after {
     content: "";
     position: absolute;
-    background-color: #d5ff8b;
+    background-color: var(--primary_darkgrey);
     width: 3px;
     height: 9px;
     right: 40px;
