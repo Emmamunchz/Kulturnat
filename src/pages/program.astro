@@ -14,20 +14,61 @@ import ImageBorder from "../components/ImageBorder.astro";
 import ProgramCard from "../components/ProgramCard.astro";
 import ProgramList from "../components/ProgramList.astro";
 import ProgramButton from "../components/ProgramButton.astro";
+import Header from "../components/Header.astro";
+
 ---
 <head> <link class="favicon" rel="icon" href="favicon1.svg" > </head>
 <Layout>
+    <Header/>
+
 <main>
+    
  <h1 style="color: var(--accent);"><br>Program</h1>
 <h2><br>Find det der passer lige præcis til dig</h2>
 <p>Her finder du alle de spændende aktiviteter til programmet. Tryk og læs endnu mere, og bliv inspireret til hvad det næste du skal opleve skal være. </p>
 <FilterSystem />
 <ProgramCard h2="Koncert" p="Tirsdag d 21/9 kl. 20:30" img="https://placehold.co/100x50"/>
+<section class="info">
+    <div class="column">
+    <p>Find dine gemte begivenheder fra listen her, eller oppe i menuen.</p>
+  </div>
+    <div class="column">
 
+    <p>Har du selv et sjovt indslag? Meld dig til her.</p>
+ </div>
+
+    </section>
 </main>
+<div class="gap"></div>
+
+<img src="src/assets/logo_jose.svg" alt="" class="watermark" />
+<Footer />
 </Layout>
 <style> 
+  .gap {
+      height: 300px;
+    }
+    .watermark {
+      position: absolute;
+      height: 800px;
+      transform: translate(-30%, -60%);
+      z-index: -1;
+      filter: brightness(0) saturate(100%) invert(32%) sepia(67%) saturate(547%)
+        hue-rotate(290deg) brightness(94%) contrast(97%);
+      opacity: 0.2;
+    }
+.info{
+    padding: 50px;
+    display: flex;
+    justify-content: space-between;
+    gap: 150px;
 
+}
+.column{
+    display: flex;
+    flex-direction: column;
+align-items: center;
+}
 main {
   width: 900px;
   margin: 0 auto;
